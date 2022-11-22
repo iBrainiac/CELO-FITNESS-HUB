@@ -1,4 +1,6 @@
 # Dacade Fitness Hub
+ find link of the site here for demo
+https://ibrainiac.github.io/DACADE-FITNESS-HUB/
 
 ## Description
 This is a fitness hub dAPP where  users can:
