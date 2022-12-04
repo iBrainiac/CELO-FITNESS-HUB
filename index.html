@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+ <head>
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
@@ -30,7 +31,7 @@
       @media (min-width: 576px) {
         .card {
           border: 0;
-          box-shadow: rgba(13, 13, 14, 0.05) 0px 10px 20px;
+          box-shadow: rgb(0 0 0 / 5%) 0px 10px 20px;
           border-radius: 10px;
         }
         
@@ -82,7 +83,7 @@
     color: #5e2ced;
 }
 .btn_get:hover {
-    color: rgba(255, 255, 255, 0.836);
+    color: #fff;
     background: #6754e2;
     border-color: #6754e2;
     -webkit-box-shadow: none;
@@ -193,17 +194,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .new_footer_top .footer_bg .footer_bg_one {
-    background: url("") no-repeat center center;
-    width: 330px;
-    height: 105px;
-  background-size:100%;
-    position: absolute;
-    bottom: 0;
-    left: 30%;
-    -webkit-animation: myfirst 22s linear infinite;
-    animation: myfirst 22s linear infinite;
-}
-.new_footer_top .footer_bg .footer_bg_one {
     background: url("https://media3.giphy.com/media/duuipCCnw5PiFzVYeA/source.gif") no-repeat center center;
     width: 330px;
     height: 105px;
@@ -214,8 +204,9 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-animation: myfirst 22s linear infinite;
     animation: myfirst 22s linear infinite;
 }
+
 .new_footer_top .footer_bg .footer_bg_two {
-    background: url("https://i2.wp.com/visual-therapy.com/blog/wp-content/uploads/2016/04/natasha_7.gif?") no-repeat center center;
+    background: url("https://www.greetingseveryday.com/wp-content/uploads/2017/06/International-Yoga-Day-2017-3D-GIF-For-Whatsapp.gif") no-repeat center center;
     width: 88px;
     height: 100px;
   background-size:100%;
@@ -253,8 +244,9 @@ h1, h2, h3, h4, h5, h6 {
   100% {
     left: 100%;
   }
-} 
-*************footer End****************
+}
+
+/*************footer End*****************/
 
 .header{
     background: url("https://www.healthandfitnesstravel.com/images/blog/2011-2017/Health-and-Fitness-Class-Guide.jpg") center center fixed;
@@ -268,7 +260,7 @@ h1, h2, h3, h4, h5, h6 {
     -msn-background-size: cover;
 }
 .header .overlay{
-    background: rgba(61, 18, 161, 0.58);
+    background: rgba(0, 0, 0, 0.58);
     width: 100%;
     height: 100%;
     position: absolute;
@@ -431,62 +423,59 @@ img {
 
 
     </style>
-    <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <script src="https://cdn.tailwindcss.com"></script>
-      <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
-      <title>Dacade Fitness Hub </title>
-      <style>
-        button * {
-          pointer-events: none;
-        }
-      </style>
-    </head>
-    
-    <body id="body">
-      <!-- Navbar -->
-      <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded">
-        <div class="container flex flex-wrap justify-between items-center mx-auto">
-          <a href="#" class="flex items-center">
-            <span class="self-center text-xl font-semibold whitespace-nowrap">
-              Dacade Fitness Hub
-            </span>
-          </a>
-          <div class="flex md:order-2">
-            <!-- <span class="text-black bg-gray-100 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-3 md:mr-0">
-              Bonus: <span id="royalties_balance">0</span>
-            </span>         -->
-            <!-- <span class="text-black bg-gray-100 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-3 md:mr-0">
-              cUSD: <span id="balance">0.0000</span>
-            </span> -->
-          </div>
-        </div>
-      </nav>
-    
-      <div class="px-10">
-        <div id="notification"
-          class="flex p-4 mb-4 text-sm text-blue-700 bg-blue-100 rounded-lg dark:bg-blue-200 dark:text-blue-800"
-          role="alert">
-          <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd"
-              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-              clip-rule="evenodd"></path>
-          </svg>
-          <span class="sr-only">Info</span>
-          <div>
-            <span class="font-medium">Vamos!</span> <span id="notification-message">Welcome to Dacade Fitness Hub
-              </span>
-          </div>
-        </div>
 
-   
+    <title>Dacade Fitness Hub</title>
+    <nav class="navbar navbar-icon-top navbar-expand-lg navbar-blue bg-blue">
+      <a class="navbar-brand" href="#">Dacade Fitness Hub</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">
+              <i class="fa fa-home"></i>
+              Home
+              <span class="sr-only">(current)</span>
+              </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa fa-envelope-o">
+                <span class="badge badge-danger"></span>
+              </i>
+              Message
+            </a>
+          </li>
+          
+       
+        <ul class="navbar-nav ">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa fa-bell">
+                <span class="badge badge-info"></span>
+              </i>
+              notification
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa fa-shopping-cart">
+                <span class="badge badge-success"></span>
+              </i>
+              Cart
+            </a>
+          </li>
+        </ul>
+      
+      </div>
+    </nav>
     <img src="https://images.unsplash.com/photo-1627483298606-cf54c61779a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Team Fitness photo">
     
     
-  </head>
+ </head>
+
 
   <body>
   
@@ -513,7 +502,7 @@ img {
           data-bs-toggle="modal"
           data-bs-target="#addModal"
         >
-          Add Fitness Programme
+          Add sport
         </a>
       </div>
       
@@ -568,10 +557,10 @@ img {
                 </div>
                 <div class="col">
                   <input
-                    type="text"
-                    id="newLocation"
+                    type="number"
+                    id="newStock"
                     class="form-control mb-2"
-                    placeholder="Enter location"
+                    placeholder="Enter stock"
                   />
                 </div>
                 <div class="col">
@@ -628,11 +617,11 @@ img {
                   <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;">
                       <h3 class="f-title f_600 t_color f_size_18">About us</h3>
                       <ul class="list-unstyled f_list">
-                          <li><a href="#">Fitness Genres</a></li>
-                          <li><a href="#">Why Pay with Celo</a></li>
-                          <li><a href="#">How to get a Celo Wallet</a></li>
-                          <li><a href="#">Purchase Fitness Lessons in cUSD</a></li>
-                          <li><a href="#">Dacade Fitness Hub Extras</a></li>
+                        <li><a href="#">Fitness Genres</a></li>
+                        <li><a href="#">Why Pay with Celo</a></li>
+                        <li><a href="#">How to get a Celo Wallet</a></li>
+                        <li><a href="#">Purchase Fitness Lessons in cUSD</a></li>
+                        <li><a href="#">Dacade Fitness Hub Extras</a></li>
                       </ul>
                   </div>
               </div>
