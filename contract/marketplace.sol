@@ -7,11 +7,7 @@ interface IERC20Token {
 
     function approve(address, uint256) external returns (bool);
 
-    function transferFrom(
-        address,
-        address,
-        uint256
-    ) external returns (bool);
+    function transferFrom(address, address, uint256) external returns (bool);
 
     function totalSupply() external view returns (uint256);
 
@@ -40,6 +36,7 @@ contract MarketPlace {
         uint256 price;
         uint256 sold;
         uint256 stock;
+        bool isDiscounted;
     }
 
     mapping(uint256 => Product) private products;
@@ -75,12 +72,15 @@ contract MarketPlace {
             _description,
             _price,
             _sold,
-            _stock
+            _stock,
+            false
         );
         productsLength++;
     }
 
-    function readProduct(uint256 _index)
+    function readProduct(
+        uint256 _index
+    )
         public
         view
         returns (
@@ -90,7 +90,8 @@ contract MarketPlace {
             string memory,
             uint256,
             uint256,
-            uint256
+            uint256,
+            bool
         )
     {
         return (
@@ -100,7 +101,8 @@ contract MarketPlace {
             products[_index].description,
             products[_index].price,
             products[_index].sold,
-            products[_index].stock
+            products[_index].stock,
+            products[_index].isDiscounted
         );
     }
 
@@ -123,7 +125,7 @@ contract MarketPlace {
 
         uint256 totalAmount = currentProduct.price * _amount;
         uint256 deductAmount = calculateDeductAmount(_index, _amount);
-        totalAmount = totalAmount - deductAmount;
+        totalAmount -= deductAmount;
 
         require(
             IERC20Token(cUsdTokenAddress).transferFrom(
@@ -145,36 +147,49 @@ contract MarketPlace {
         return (productsLength);
     }
 
+    function switchDiscount(uint _index) public onlyProductOwner(_index){
+        products[_index].isDiscounted = !products[_index].isDiscounted;
+    }
+
+    function deleteProduct(uint _index) public onlyProductOwner(_index){
+        delete products[_index];
+    }
+
     /**
      * @dev allow products' owners to update their stock value
      */
-    function updateStock(uint256 _index, uint256 _stock)
-        public
-        onlyProductOwner(_index)
-    {
+    function updateStock(
+        uint256 _index,
+        uint256 _stock
+    ) public onlyProductOwner(_index) {
+        require(_stock != 0, "Stock cant be 0");
         products[_index].stock = _stock;
     }
 
     /**
      * @dev allow products' owners to update the price of their products
      */
-    function updatePrice(uint256 _index, uint256 _price)
-        public
-        onlyProductOwner(_index)
-    {
+    function updatePrice(
+        uint256 _index,
+        uint256 _price
+    ) public onlyProductOwner(_index) {
+        require(_price != 0, "Price cant be 0");
         products[_index].price = _price;
     }
 
     /**
-        * @notice calculates the amount that will deducted when buying a specific product
+     * @notice calculates the amount that will deducted when buying a specific product
      */
-    function calculateDeductAmount(uint256 _index, uint256 _amount)
-        public
-        view
-        returns (uint256)
-    {
+    function calculateDeductAmount(
+        uint256 _index,
+        uint256 _amount
+    ) public view returns (uint256) {
         require(_amount > 0, "You must buy at least one product");
         uint256 totalAmount = products[_index].price * _amount;
-        return (totalAmount * discountAmount) / 1 ether;
+        if (products[_index].isDiscounted) {
+            return (totalAmount * discountAmount) / 1 ether;
+        } else {
+            return (0);
+        }
     }
 }
